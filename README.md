@@ -1,6 +1,6 @@
 ## Getting Started
 
-#Steps:
+Steps:
 
 * Compile, test, jar: gradle build
 * Run: gradle bootRun (verificar modo background)
