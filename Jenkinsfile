@@ -6,7 +6,7 @@ pipeline {
       steps {
         script {
           println "Stage: ${env.STAGE_NAME}"
-          sh './gradle clean build'
+          sh 'gradle clean build'
         }
       }
     }
