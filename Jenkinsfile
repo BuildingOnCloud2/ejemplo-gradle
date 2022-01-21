@@ -25,7 +25,7 @@ pipeline {
       steps {
         script {
           println "Stage: ${env.STAGE_NAME}"
-          sh 'nohup bash gradle bootRun &'
+          sh 'nohup gradle bootRun &'
           sleep 15
         }
       }
