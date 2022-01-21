@@ -6,6 +6,7 @@ pipeline {
       steps {
         script {
           println "Stage: ${env.STAGE_NAME}"
+          sh './gradle clean build'
         }
       }
     }
@@ -13,6 +14,10 @@ pipeline {
       steps {
         script {
           println "Stage: ${env.STAGE_NAME}"
+          def scannerHome = tool 'sonar-scanner';
+          withSonarQubeEnv('sonar-server') { 
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.projectBaseDir=/Users/jaruizf/repos/ejemplo-gradle -Dsonar.sources=src -Dsonar.java.binaries=build"
+          }
         }
       }
     }
