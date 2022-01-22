@@ -3,7 +3,7 @@ pipeline {
 
 
   parameters {
-    choice choices: ['gradle', 'maven'], description: 'Select Building Tool', name: 'buidlTool'
+    choice choices: ['gradle', 'maven'], description: 'Select Building Tool', name: 'buildTool'
   }       
 
 stages{
