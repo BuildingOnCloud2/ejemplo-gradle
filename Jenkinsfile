@@ -8,7 +8,7 @@ pipeline {
     stage('Pipeline'){
       steps{
         script{
-
+              println "Stage: ${env.STAGE_NAME}"
         }
       }
     }
