@@ -29,10 +29,10 @@ pipeline {
       println 'Checking Pipeline Status'
     }
     failure {
-      slackSend color: '#BADA55', message: 'Jesus Ruiz NOK' 
+      slackSend color: '#BADA55', message: 'Jesus Ruiz ${env.JOB_NAME}' + params.buildTool + 'Ejecucion exitosa'
     }
     success {
-      slackSend color: '#BADA55', message: 'Jesus Ruiz OK' 
+      slackSend color: '#BADA55', message: 'Jesus Ruiz ${env.JOB_NAME}' + params.buildTool + 'Ejecucion fallida en stage ${env.STAGE_NAME}'
     }
   }
 }
