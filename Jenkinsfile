@@ -1,12 +1,12 @@
 pipeline {
-  agent any
+ agent any
 
 
-  parameters {
+ parameters {
     choice choices: ['gradle', 'maven'], description: 'Select Building Tool', name: 'buildTool'
   }       
 
-stages{
+ stages{
     stage('Pipeline'){
       steps{
         script{
@@ -22,6 +22,17 @@ stages{
           }
         }
       }
+    }
+  }
+  post {
+    always {
+      println 'Checking Pipeline Status'
+    }
+    failure {
+      slackSend color: '#BADA55', message: 'Jesus Ruiz NOK' 
+    }
+    success {
+      slackSend color: '#BADA55', message: 'Jesus Ruiz OK' 
     }
   }
 }

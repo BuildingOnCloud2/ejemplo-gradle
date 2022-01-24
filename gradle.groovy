@@ -23,17 +23,6 @@ def call() {
     println "Stage: ${env.STAGE_NAME}"
     nexusPublisher nexusInstanceId: 'nexus-local', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/jaruizf/.jenkins/workspace/ejemplo-gradle_maven-gradle/build/DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.1']]]
   }
-  post {
-    always {
-        println 'Checking Pipeline Status'
-    }
-    failure {
-        slackSend color: '#BADA55', message: 'Jesus Ruiz NOK' 
-    }
-    success {
-        slackSend color: '#BADA55', message: 'Jesus Ruiz OK' 
-    }
-  }
 }
 
 return this;
